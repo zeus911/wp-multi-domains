@@ -7,7 +7,7 @@ Each domains share the same WP Core and have access to all available plugins wit
 Setup is easily done by editing the `wp-config.php` file and including the domains and its database credentials within the `switch` statement. 
 
 ```
-switch( domain() ) {
+switch( $domain ) {
     case 'mysite.com':
         define('DB_USER', 'mysite_user');
         define('DB_NAME', 'mysite_database');
@@ -34,4 +34,9 @@ switch( domain() ) {
         break;
     ...
 }
+```
+
+Before running any WP CLI commands, set the MAIN_DOMAIN to the desired working domain with the following command:
+```
+wp config set MAIN_DOMAIN <domain>
 ```
