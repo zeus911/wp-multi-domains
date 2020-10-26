@@ -20,24 +20,24 @@
  * @package WordPress
  */
 
-function domain(){
-    // return sprintf(
-    //     "%s://%s%s",
-    //     isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
-    //     $_SERVER['SERVER_NAME'],
-    //     $_SERVER['REQUEST_URI']
-    // );
+// Set a domain for WP CLI access. 
+define('MAIN_DOMAIN', '');
 
-    return sprintf(
-        "%s",
-        $_SERVER['SERVER_NAME']
-    );
-
+function getDomain(){
+    if ( isset( $_SERVER['SERVER_NAME']) ) {
+        return sprintf(
+            "%s",
+            $_SERVER['SERVER_NAME']
+        );
+    }
 }
+
+// Get the current domain
+$domain = getDomain() ?: MAIN_DOMAIN;
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-switch( domain() ) {
+switch( $domain ) {
     case '<domain>':
         define('DB_USER', '');
         define('DB_NAME', '');
