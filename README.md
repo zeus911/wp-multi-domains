@@ -1,7 +1,7 @@
 # WP Multi Domains
 
-An alternative to setting up single domains sites on Wordpress without the need of a multi-site network setup.
-Each domains share the same WP Core and have access to all available plugins within the `wp-content/plugins` directory. 
+An alternative to setting up single domains sites on single Wordpress installation without the need of a multi-site network setup.
+Each domains shares the same WP Core, contains their own database, and have access to all available plugins and themes within the `wp-content` directory saving file storage space. 
 
 ## Usage
 Setup is easily done by editing the `wp-config.php` file and including the domains and its database credentials within the `switch` statement. 
